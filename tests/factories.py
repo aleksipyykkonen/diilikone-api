@@ -38,5 +38,4 @@ class DealFactory(SQLAlchemyModelFactory):
         model = diilikone.models.Deal
 
     size = 75
-    deal_group = factory.SubFactory(DealGroupFactory)
     salesperson = factory.SubFactory(UserFactory)

@@ -11,7 +11,6 @@ class TestDeal(object):
         (
             'id',
             'size',
-            'deal_group_id',
             'salesperson_id'
         )
     )
