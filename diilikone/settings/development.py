@@ -23,3 +23,4 @@ SQLALCHEMY_DATABASE_URI = os.environ.get(
     'DATABASE_URL',
     'postgres://localhost/diilikone'
 )
+CORS_HEADERS = 'Content-Type'

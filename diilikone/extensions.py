@@ -1,9 +1,19 @@
-from flask.ext.sqlalchemy import SQLAlchemy
 import sqlalchemy as sa
+
 from flask_mail import Mail
+from flask.ext.cors import CORS
+from flask.ext.sqlalchemy import SQLAlchemy
+from sqlalchemy_utils import force_auto_coercion
 
 db = SQLAlchemy()
+cors = CORS()
 mail = Mail()
+
+
+# Assign automatic data type coercion. For example str representations of UUIDs
+# are automatically coerced into UUID objects.
+force_auto_coercion()
+
 
 @sa.event.listens_for(db.metadata, 'before_create')
 def create_postgres_extensions(target, connection, **kw):

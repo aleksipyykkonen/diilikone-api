@@ -5,7 +5,7 @@ from flask import Flask
 import pkgutil
 import importlib
 
-from .extensions import db, mail
+from .extensions import cors, db, mail
 
 
 class Application(Flask):
@@ -24,14 +24,16 @@ class Application(Flask):
     def _init_extensions(self):
         db.init_app(self)
         mail.init_app(self)
-        pass
+        cors.init_app(self)
 
     def _init_views(self):
         from .views.dummy import dummy
+        from .views.deals import deals
         from .views.deal_groups import deal_groups
         from .views.provision import provision
         from .views.product_types import product_types
         self.register_blueprint(dummy)
+        self.register_blueprint(deals)
         self.register_blueprint(deal_groups)
         self.register_blueprint(provision)
         self.register_blueprint(product_types)
