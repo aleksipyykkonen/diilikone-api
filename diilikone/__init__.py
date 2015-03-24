@@ -5,7 +5,7 @@ from flask import Flask
 import pkgutil
 import importlib
 
-from .extensions import db
+from .extensions import db, mail
 
 
 class Application(Flask):
@@ -23,6 +23,7 @@ class Application(Flask):
 
     def _init_extensions(self):
         db.init_app(self)
+        mail.init_app(self)
         pass
 
     def _init_views(self):

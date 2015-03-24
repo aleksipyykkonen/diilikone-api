@@ -1,9 +1,9 @@
 from flask.ext.sqlalchemy import SQLAlchemy
 import sqlalchemy as sa
-
+from flask_mail import Mail
 
 db = SQLAlchemy()
-
+mail = Mail()
 
 @sa.event.listens_for(db.metadata, 'before_create')
 def create_postgres_extensions(target, connection, **kw):
